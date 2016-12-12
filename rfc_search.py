@@ -33,7 +33,7 @@ from pprint import pprint
 
 
 parser = argparse.ArgumentParser(description = 'RFC Search')
-parser.add_argument('-d', '--display', action='store_true', default=False, dest='display', help='Print the actual lines as well as their line numbers')
+parser.add_argument('-n', '--numbers-only', action='store_true', default=False, dest='numbers_only', help='Only display line numbers, not the actual lines')
 parser.add_argument('-m', '--min', action='store', default=False, dest='min', help='Lowest-numbered RFC to check')
 parser.add_argument('-M', '--max', action='store', default=False, dest='max', help='Highest-numbered RFC to check')
 parser.add_argument('-s', '--string', action='store', default=False, dest='string', help='The string to search for')
@@ -72,17 +72,18 @@ def main():
 		line_number = 0
 		for line in open(filename, 'r'):
 			line_number += 1
+			line = line.strip()
 			if search_string in line:
 				if rfc_num not in hits:
-					if args.display:
-						hits[rfc_num] = ['Line ' + str(line_number) + ': ' + str(line)]
-					else:
+					if args.numbers_only:
 						hits[rfc_num] = [line_number]
-				else:
-					if args.display:
-						hits[rfc_num].append('Line ' + str(line_number) + ': ' + str(line))
 					else:
+						hits[rfc_num] = ['Line ' + str(line_number) + ': ' + str(line)]
+				else:
+					if args.numbers_only:
 						hits[rfc_num].append(line_number)
+					else:
+						hits[rfc_num].append('Line ' + str(line_number) + ': ' + str(line))
 
 	if len(hits) > 0:
 		pprint(hits)
