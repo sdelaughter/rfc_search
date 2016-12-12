@@ -23,7 +23,7 @@ Set the -V/--version flag to print the version number and exit
 
 """
 
-__version__ = "1.2"
+__version__ = "1.3"
 
 
 import os
@@ -33,12 +33,41 @@ from pprint import pprint
 
 
 parser = argparse.ArgumentParser(description = 'RFC Search')
-parser.add_argument('-n', '--numbers-only', action='store_true', default=False, dest='numbers_only', help='Only display line numbers, not the actual lines')
-parser.add_argument('-m', '--min', action='store', default=False, dest='min', help='Lowest-numbered RFC to check')
-parser.add_argument('-M', '--max', action='store', default=False, dest='max', help='Highest-numbered RFC to check')
-parser.add_argument('-s', '--string', action='store', default=False, dest='string', help='The string to search for')
-parser.add_argument('-v', '--verbose', action='store_true', default=False, dest='verbose', help='Run in verbose mode')
-parser.add_argument('-V', '--version', action='version', version=__version__, help='Print version number and exit')
+parser.add_argument('-m',
+		    '--min',
+		    action='store',
+		    default=False,
+		    dest='min',
+		    help='Lowest-numbered RFC to check')
+parser.add_argument('-M',
+		    '--max',
+		    action='store',
+		    default=False,
+		    dest='max',
+		    help='Highest-numbered RFC to check')
+parser.add_argument('-n',
+		    '--numbers-only',
+		    action='store_true',
+		    default=False,
+		    dest='numbers_only',
+		    help='Only display line numbers, not the actual lines')
+parser.add_argument('-s',
+		    '--string',
+		    action='store',
+		    default=False,
+		    dest='string',
+		    help='The string to search for')
+parser.add_argument('-v',
+		    '--verbose',
+		    action='store_true',
+		    default=False,
+		    dest='verbose',
+		    help='Run in verbose mode')
+parser.add_argument('-V',
+		    '--version',
+		    action='version',
+		    version=__version__,
+		    help='Print version number and exit')
 args = parser.parse_args()
 
 
