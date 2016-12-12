@@ -47,7 +47,8 @@ for filename in os.listdir('.'):
 			if args.verbose:
 				print 'Skipping RFC above maximum threshold of ' + str(args.max) + ': ' + str(rfc_num)
 			continue
-		print 'Checking RFC ' + str(rfc_num)
+		if args.verbose:
+			print 'Checking RFC ' + str(rfc_num)
 	except:
 		if args.verbose:
 			print 'Skipping non-numeric RFC: ' + str(filename)
