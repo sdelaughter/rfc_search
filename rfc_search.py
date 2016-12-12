@@ -16,8 +16,8 @@ Use the -s/--string paramater to specify which string to search for
 	No guarantees can be made for input with non alpha-numeric characters.
 Use the -m/--min option to specify a lower bound on the RFC numbers to be searched.
 Use the -M/--max option to specify an upper bound on the RFC numbers to be searched.
-Set the -d/--display flag to print the matching lines in their entirety in addition to line numbers.
-	Without this flag, only the numbers of matching lines will be printed
+Set the -n/--numbers-only flag to print matching line numbers only.
+	Without this flag, line numbers and the matching lines themselves will both be printed.
 Set the -v/--verbose flag to give progress indication by printing a statement as each file in the foler is checked or skipped
 Set the -V/--version flag to print the version number and exit
 
