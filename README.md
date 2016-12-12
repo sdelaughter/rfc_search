@@ -25,9 +25,11 @@ It will print the matching lines and/or line numbers for all relevant RFCs along
  - If your string contains multiple words, wrap it in double quotes.
  - Currently no support is provided for more complicated regex searches.
  - No guarantees can be made for input with non alpha-numeric characters.
+ 
 ####Use the -m/--min option to specify a lower bound on the RFC numbers to be searched.
 ####Use the -M/--max option to specify an upper bound on the RFC numbers to be searched.
 ####Set the -d/--display flag to print the matching lines in their entirety in addition to line numbers.
  - Without this flag, only the numbers of matching lines will be printed
+ 
 ####Set the -v/--verbose flag to give progress indication by printing a statement as each file in the foler is checked or skipped
 ####Set the -V/--version flag to print the version number and exit
