@@ -6,7 +6,7 @@ Last Updated: 12/11/16
 Search the full text of (previously downloaded) IETF RFCs for a given string
 Print the line numbers of all matches
 
-Maintained at 
+Maintained at https://github.com/sdelaughter/rfc_search
 
 """
 
