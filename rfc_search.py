@@ -1,7 +1,7 @@
 """RFC Search
 Author: Samuel DeLaughter
 License: MIT
-Last Updated: 12/11/16
+Last Updated: 12/12/16
 
 Search the full text of (previously downloaded) IETF RFCs for a given string
 Print the line numbers of all matches
