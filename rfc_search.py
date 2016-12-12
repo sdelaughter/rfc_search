@@ -48,7 +48,7 @@ def main():
 		sys.exit()
 	else:
 		search_string = args.string.strip('"')
-	
+
 	hits = {}
 	for filename in os.listdir('.'):
 		try:
@@ -83,8 +83,8 @@ def main():
 						hits[rfc_num].append('Line ' + str(line_number) + ': ' + str(line))
 					else:
 						hits[rfc_num].append(line_number)
-					
-	if len(hits) > 0:				
+
+	if len(hits) > 0:
 		pprint(hits)
 	else:
 		print('No results found')
