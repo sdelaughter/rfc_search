@@ -10,7 +10,7 @@ Maintained at https://github.com/sdelaughter/rfc_search
 
 """
 
-__version__ = "1.1"
+__version__ = "1.2"
 
 
 import os
@@ -20,9 +20,10 @@ from pprint import pprint
 
 
 parser = argparse.ArgumentParser(description = 'RFC Search')
-parser.add_argument('-s', '--string', action='store', default=False, dest='string', help='The string to search for')
+parser.add_argument('-d', '--display', action='store_true', default=False, dest='display', help='Print the actual lines as well as their line numbers')
 parser.add_argument('-m', '--min', action='store', default=False, dest='min', help='Lowest-numbered RFC to check')
 parser.add_argument('-M', '--max', action='store', default=False, dest='max', help='Highest-numbered RFC to check')
+parser.add_argument('-s', '--string', action='store', default=False, dest='string', help='The string to search for')
 parser.add_argument('-v', '--verbose', action='store_true', default=False, dest='verbose', help='Run in verbose mode')
 parser.add_argument('-V', '--version', action='version', version=__version__, help='Print version number and exit')
 args = parser.parse_args()
@@ -60,13 +61,20 @@ def main():
 			line_number += 1
 			if search_string in line:
 				if rfc_num not in hits:
-					hits[rfc_num] = [line_number]
+					if args.display:
+						hits[rfc_num] = ['Line ' + str(line_number) + ': ' + str(line)]
+					else:
+						hits[rfc_num] = [line_number]
 				else:
-					hits[rfc_num].append(line_number)
-	if len(hits) > 0:
+					if args.display:
+						hits[rfc_num].append('Line ' + str(line_number) + ': ' + str(line))
+					else:
+						hits[rfc_num].append(line_number)
+					
+	if len(hits) > 0:				
 		pprint(hits)
 	else:
-		print('No matches found')
+		print('No results found')
 
 
 if __name__ == "__main__":
