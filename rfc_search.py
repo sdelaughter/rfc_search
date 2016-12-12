@@ -63,8 +63,10 @@ def main():
 					hits[rfc_num] = [line_number]
 				else:
 					hits[rfc_num].append(line_number)
-					
-	pprint(hits)
+	if len(hits) > 0:
+		pprint(hits)
+	else:
+		print('No matches found')
 
 
 if __name__ == "__main__":
