@@ -10,7 +10,7 @@ Maintained at
 
 """
 
-__version__ = "0.1"
+__version__ = "1.1"
 
 
 import os
@@ -28,7 +28,7 @@ parser.add_argument('-V', '--version', action='version', version=__version__, he
 args = parser.parse_args()
 
 
-main():
+def main():
 	if not args.string:
 		print ('Please supply a string to search for using the -s / --string option')
 		sys.exit()
