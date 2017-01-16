@@ -10,7 +10,7 @@ Be sure to get the .txt versions, not .pdf
 Once you've acquired the documents you'd like to search, place rfc_search.py in the folder containing them.
 cd to that folder, and run:
 
-    python rfc_search.py "search string"
+    python rfc_search.py -s "search string"
  
 Where "search string" is the word or phrase you're looking for.
 
